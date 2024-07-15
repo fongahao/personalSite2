@@ -1,0 +1,1 @@
+export { default as MenuOutline } from '@ant-design/icons/lib/outline/MenuOutline';

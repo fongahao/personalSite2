@@ -1,0 +1,90 @@
+{
+  "name": "blog_v2",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.7.8",
+    "axios": "^0.27.2",
+    "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
+    "egg-mysql": "^3.1.0",
+    "egg-scripts": "^2.11.0",
+    "element-ui": "^2.15.8",
+    "highlight.js": "^11.5.1",
+    "marked": "^4.0.16",
+    "tocbot": "^4.18.2",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.4.1",
+    "vue-router": "3.2",
+    "vue-server-renderer": "^2.6.14",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@squoosh/lib": "^0.4.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-import": "^1.13.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.7.1",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "html-webpack-plugin": "^5.5.0",
+    "image-minimizer-webpack-plugin": "^3.3.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^7.0.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-middleware": "^5.3.3",
+    "webpack-dev-server": "^4.9.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --port=9002 --title=egg-server-blog_egg",
+    "stop": "egg-scripts stop --title=egg-server-blog_egg",
+    "dev": "egg-bin dev --port=9002",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "devs": "webpack serve --open",
+    "watch": "npm run watch:client && npm run watch:server",
+    "watch:client": "webpack --config config/webpack.dev.client.config.js --watch",
+    "watch:server": "webpack --config config/webpack.dev.server.config.js --watch",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "webpack --config config/prod/webpack.prod.client.config.js",
+    "build:server": "webpack --config config/prod/webpack.prod.server.config.js"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

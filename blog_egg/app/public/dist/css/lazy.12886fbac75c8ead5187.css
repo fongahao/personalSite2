@@ -1,0 +1,250 @@
+.chosen-articles[data-v-3fbeb688] {
+  box-sizing: content-box;
+  display: flex;
+  margin: 0 0 var(--gap, 3rem) 0;
+  position: relative;
+}
+.chosen-articles-header[data-v-3fbeb688] {
+  margin-top: 4rem;
+  flex: 0 0 250px;
+  margin-right: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  transform: translateY(-10px);
+  color: #fff;
+}
+.chosen-articles-header[data-v-3fbeb688]:before {
+  content: "";
+  background: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(92% + 10px);
+  z-index: 1;
+  border-radius: 12px;
+}
+.chosen-articles-header[data-v-3fbeb688]:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 92%;
+  background: #000;
+  z-index: 2;
+  border-radius: 8px;
+}
+.header-card-title[data-v-3fbeb688] {
+  color: #fff;
+  /* color: #1111; */
+  font-size: clamp(1.8rem, 1.8rem + 0.2vw, 3rem);
+  z-index: 3;
+}
+.header-card-sponsor[data-v-3fbeb688] {
+  z-index: 3;
+}
+.mini-card-grid[data-v-3fbeb688] {
+  scrollbar-color: #666 #201c29;
+  scrollbar-gutter: always;
+  padding: 3rem 0 3rem 2rem;
+  /* margin: 0 0 1.5rem 3rem; */
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* display: grid; */
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin: 0 0 1.5rem 0;
+  position: relative;
+}
+.mini-card[data-v-3fbeb688] {
+  min-width: 300px;
+  max-width: 330px;
+  min-height: 350px;
+  box-shadow: -2rem 0 3rem -2rem #000;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(85deg, #434343, #262626);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  margin: 0;
+  position: relative;
+}
+
+/* 伪类 */
+.mini-card[data-v-3fbeb688]:hover {
+  transform: translate(-0.5rem, -1rem) rotate(3deg);
+}
+.mini-card[data-v-3fbeb688]:first-child:hover {
+  transform: translate(-0.5rem, -1rem) rotate(3deg);
+}
+.mini-card[data-v-3fbeb688]:not(:first-child) {
+  margin-left: -130px;
+  box-shadow: -3rem 0 3rem -2rem #000;
+}
+.mini-card:hover ~ .mini-card[data-v-3fbeb688] {
+  transform: translateX(130px);
+}
+.mini-card time[data-v-3fbeb688] {
+  display: block;
+  margin: 0 0 0.25rem;
+  /* color: #777; */
+  /* color: #111; */
+}
+time[data-v-3fbeb688] .anticon {
+  font-size: 0.88;
+}
+.mini-card-title[data-v-3fbeb688] {
+  /* color: #ff7a18; */
+  color: #f38a3d;
+  /* color: #111; */
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  /* text-align: center; */
+}
+h3[data-v-3fbeb688] {
+  font-weight: 600;
+}
+.mini-card-introduce[data-v-3fbeb688] {
+  font-size: 0.66rem;
+  max-height: 162px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  display: -webkit-box;
+  /*设置子元素排列方式*/
+  -webkit-box-orient: vertical;
+  /*设置显示的行数，多出的部分会显示为...*/
+  -webkit-line-clamp: 9;
+}
+.tags[data-v-3fbeb688] {
+  font-family: MD Primer Bold, Rubik, Lato, Lucida Grande, Lucida Sans Unicode,
+    Tahoma, Sans-Serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ff7a18;
+  /* font-size: 0.5rem; */
+  -webkit-margin-end: 0.66rem;
+  margin-inline-end: 0.66rem;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+.tags a[data-v-3fbeb688] :nth-child(1) {
+  font-size: 0.66rem;
+}
+.tags a[data-v-3fbeb688] :nth-child(2) {
+  font-size: 0.66rem;
+}
+.icon[data-v-3fbeb688] {
+  color: #af002d;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+/* 
+  媒体查询 
+  宽度等于或小于 1200px 时，此 CSS 才会应用样式：
+  */
+@media (max-width: 1200px) {
+  /* 伪类 滚动条-非标准 */
+.chosen-articles[data-v-3fbeb688]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.chosen-articles[data-v-3fbeb688]::-webkit-scrollbar-thumb {
+    background: #434343;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%),
+      inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+  /* .chosen-articles::-webkit-scrollbar-track {
+    background: linear-gradient(
+      90deg,
+      #434343,
+      #434343 1px,
+      #262626 0,
+      #262626
+    );
+  } */
+.mini-card-grid[data-v-3fbeb688] {
+    gap: 1rem 7rem;
+    overflow-x: visible;
+}
+.mini-card[data-v-3fbeb688] {
+    min-width: 220px;
+}
+.mini-card:hover ~ .mini-card[data-v-3fbeb688] {
+    transform: translateX(30px);
+}
+.chosen-articles[data-v-3fbeb688] {
+    scrollbar-color: #666 #201c29;
+    /* padding-bottom: var(--gap, 2rem); */
+    padding-left: 5px;
+    overflow-x: scroll;
+    /* -webkit-overflow-scrolling: touch; */
+    /* -ms-scroll-snap-points-x: repeat(250px); */
+    /* scroll-snap-points-x: repeat(250px); */
+    /* -ms-scroll-snap-type: mandatory; */
+    /* scroll-snap-type: mandatory; */
+    /* -ms-scroll-snap-type: x mandatory; */
+    /* scroll-snap-type: x mandatory; */
+    /* -webkit-scroll-snap-type: x mandatory; */
+}
+.chosen-articles-header[data-v-3fbeb688] {
+    scroll-snap-align: start;
+    scroll-margin-inline-start: 5px;
+}
+}
+/* 
+  媒体查询 
+  宽度等于或大于 1200px 时，此 CSS 才会应用样式：
+  */
+@media (min-width: 1200px) {
+.chosen-articles[data-v-3fbeb688]:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 2.8rem;
+    bottom: 5rem;
+    width: 5px;
+    border-radius: 5px;
+    background: linear-gradient(
+      130deg,
+      #ff7a18,
+      #af002d 41.07%,
+      #319197 76.05%
+    );
+    box-shadow: -10px 0 20px 3px #000;
+}
+  /* 伪类 滚动条-非标准 */
+.mini-card-grid[data-v-3fbeb688]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.mini-card-grid[data-v-3fbeb688]::-webkit-scrollbar-thumb {
+    background: #434343;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%),
+      inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+  /* .mini-card-grid::-webkit-scrollbar-track {
+    background: linear-gradient(
+      90deg,
+      #434343,
+      #434343 1px,
+      #262626 0,
+      #262626
+    );
+  } */
+}
+

@@ -1,0 +1,22 @@
+{
+    // 注意区分 .babelrc 和 babel.config.json 两者的维度不同
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": false
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "ant-design-vue",
+                "libraryDirectory": "es",
+                "style": "css"
+            }
+        ] // `style: true` 会加载 less 文件
+    ]
+    // "sourceType": "unambiguous"
+}

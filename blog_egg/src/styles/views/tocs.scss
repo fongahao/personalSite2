@@ -1,0 +1,92 @@
+// 支持三级目录
+.catalog {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0.01rem 0.01rem 0.01rem #c8c8c8, -0.01rem -0.01rem 0.01rem #c8c8c8;
+}
+
+.catalog-body {
+  overflow: auto;
+  max-height: 612px;
+  margin-top: 1rem;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+.catalog-list {
+  // font-weight: 300;
+  padding-left: 0;
+  position: relative;
+  font-size: 14px;
+
+  &:first-child::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    bottom: 0;
+    width: 2px;
+    // background-color: #ebedef;
+    opacity: 0.8;
+  }
+
+  // 作用于 父元素下的 ul 和 li
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  // 只作用于 a
+  & > li > a {
+    position: relative;
+    padding-left: 16px;
+    line-height: 20px;
+    // @include catalogRound(0, 6px);
+  }
+
+  ul > li > a {
+    font-size: 14px;
+    color: #333333;
+    padding-left: 36px;
+    font-weight: 500;
+    position: relative;
+    // @include catalogRound(20px, 5px);
+  }
+
+  ul > ul > li > a {
+    line-height: 20px;
+    font-size: 14px;
+    color: #333333;
+    padding-left: 50px;
+    font-weight: normal;
+    // @include catalogRound;
+  }
+
+  a {
+    color: #000;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 4px 0 4px 12px;
+
+    &:hover {
+      background-color: #ebedef;
+    }
+  }
+}
+
+.catalog-title {
+  font-weight: 500;
+  padding: 1rem 0;
+  margin: 0 1rem;
+  font-size: 16px;
+  line-height: 2rem;
+  color: #1d2129;
+  border-bottom: 0.1rem solid #e4e6eb;
+}
