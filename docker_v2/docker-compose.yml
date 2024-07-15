@@ -1,0 +1,110 @@
+version: "3"
+services:
+
+  # 后台部署，Nginx静态部署，接口转发容器内走9002端口
+  admin:
+    build:
+      context: ../admin
+      dockerfile: ./docker_admin/Dockerfile
+    image: fongahao:admin
+    ports:
+      - 8000:8000
+    volumes:
+      # 挂载
+      - ../admin/build:/www
+      - ../admin/docker_admin/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    container_name: fongahao_admin
+    networks:
+      - fongahao_net
+
+  # 博客部署，Nginx静态部署，接口转发容器内走9002端口
+  blog:
+    build:
+      context: ../blog
+      dockerfile: ./docker/Dockerfile
+    image: fongahao:blog
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      # 挂载
+      - ../blog/build:/www
+      - ../blog/cert:/etc/nginx/cert
+      - ../blog/docker/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    container_name: fongahao_blog
+    networks:
+      - fongahao_net
+
+  # 中台和blog部署
+  service:
+    build:
+      context: ../blog_egg
+      dockerfile: ./docker_blog_egg/Dockerfile
+    image: fongahao:service
+    # ports:
+    #   - 8001:9002
+    # ports:
+    #   - 80:9002 生产模式下是 80端口
+    restart: on-failure
+    container_name: fongahao_service
+    # volumes:
+    # - ../blog_egg_v2/app/public:/usr/src/service/app/public
+    networks:
+      - fongahao_net
+
+  # 数据库
+  db:
+    build:
+      context: ../mysql
+      dockerfile: ./docker_mysql/Dockerfile
+    image: fongahao:mysql
+    # ports:
+    #   - 33062:3306
+    restart: on-failure
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_PASSWORD: 123456
+      MYSQL_DATABASE: personal_site_db
+    container_name: fongahao_mysql
+    networks:
+      - fongahao_net
+    volumes:
+      # 数据持久化
+      - ../mysql/data:/var/lib/mysql
+
+networks:
+  fongahao_net:
+    external: true
+  # blog_v2: # 前台博客部署
+  #   build:
+  #     context: ../blog_v2
+  #     dockerfile: ./docker/Dockerfile
+  #   image: fongahao:blog
+  #   # depends_on:
+  #   #   - "service"
+  #   # restart: on-failure
+  #   # ports:
+  #   #   - 9000:9000
+  #   networks:
+  #     - fongahao_net
+  #   container_name: fongahao_blog
+
+
+
+  # nginx: # 前台反向代理服务器
+  #   build:
+  #     context: ../blog
+  #     dockerfile: ./docker/Dockerfile-nginx
+  #   image: react_blog:nginx
+  #   ports:
+  #     - 9000:80
+  #   volumes:
+  #     - ../blog/docker/nginx.conf:/etc/nginx/conf.d/nginx.conf
+  #   networks:
+  #     - react_blog_net
+  #   container_name: react_blog_nginx
+
+
+
+
